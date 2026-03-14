@@ -1,0 +1,395 @@
+{
+  "$id": "protobuf-descriptor.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Protocol Buffers File Descriptor",
+  "description": "Schema describing the structure of a FileDescriptorProto, which is the protobuf descriptor representation of a .proto file. File descriptors contain metadata about messages, enums, services, and extensions defined in a proto file.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The file name relative to the root of the source tree (e.g., 'google/protobuf/descriptor.proto')."
+    },
+    "package": {
+      "type": "string",
+      "description": "The protobuf package name (e.g., 'google.protobuf')."
+    },
+    "dependency": {
+      "type": "array",
+      "description": "Names of files imported by this file.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "publicDependency": {
+      "type": "array",
+      "description": "Indexes (into the dependency list) of public imports.",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "weakDependency": {
+      "type": "array",
+      "description": "Indexes (into the dependency list) of weak imports.",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "messageType": {
+      "type": "array",
+      "description": "All top-level message definitions in this file.",
+      "items": {
+        "$ref": "#/definitions/DescriptorProto"
+      }
+    },
+    "enumType": {
+      "type": "array",
+      "description": "All top-level enum definitions in this file.",
+      "items": {
+        "$ref": "#/definitions/EnumDescriptorProto"
+      }
+    },
+    "service": {
+      "type": "array",
+      "description": "All service definitions in this file.",
+      "items": {
+        "$ref": "#/definitions/ServiceDescriptorProto"
+      }
+    },
+    "extension": {
+      "type": "array",
+      "description": "All top-level extension definitions in this file.",
+      "items": {
+        "$ref": "#/definitions/FieldDescriptorProto"
+      }
+    },
+    "options": {
+      "$ref": "#/definitions/FileOptions"
+    },
+    "syntax": {
+      "type": "string",
+      "description": "The syntax of the proto file (e.g., 'proto2', 'proto3').",
+      "enum": ["proto2", "proto3"],
+      "default": "proto2"
+    },
+    "edition": {
+      "type": "string",
+      "description": "The edition of the proto file when using editions syntax (e.g., '2023')."
+    },
+    "sourceCodeInfo": {
+      "type": "object",
+      "description": "Source code information for documentation and source mapping.",
+      "properties": {
+        "location": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "array",
+                "items": { "type": "integer" }
+              },
+              "span": {
+                "type": "array",
+                "items": { "type": "integer" }
+              },
+              "leadingComments": { "type": "string" },
+              "trailingComments": { "type": "string" },
+              "leadingDetachedComments": {
+                "type": "array",
+                "items": { "type": "string" }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "DescriptorProto": {
+      "type": "object",
+      "description": "Describes a message type (MessageDescriptorProto).",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The message type name."
+        },
+        "field": {
+          "type": "array",
+          "description": "Fields defined in this message.",
+          "items": {
+            "$ref": "#/definitions/FieldDescriptorProto"
+          }
+        },
+        "extension": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FieldDescriptorProto"
+          }
+        },
+        "nestedType": {
+          "type": "array",
+          "description": "Nested message type definitions.",
+          "items": {
+            "$ref": "#/definitions/DescriptorProto"
+          }
+        },
+        "enumType": {
+          "type": "array",
+          "description": "Enum types defined within this message.",
+          "items": {
+            "$ref": "#/definitions/EnumDescriptorProto"
+          }
+        },
+        "oneofDecl": {
+          "type": "array",
+          "description": "Oneof declarations in this message.",
+          "items": {
+            "$ref": "#/definitions/OneofDescriptorProto"
+          }
+        },
+        "reservedRange": {
+          "type": "array",
+          "description": "Reserved field number ranges.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "start": { "type": "integer" },
+              "end": { "type": "integer" }
+            }
+          }
+        },
+        "reservedName": {
+          "type": "array",
+          "description": "Reserved field names.",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "FieldDescriptorProto": {
+      "type": "object",
+      "description": "Describes a field within a message.",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The field name."
+        },
+        "number": {
+          "type": "integer",
+          "description": "The field number (tag) used in the binary wire format."
+        },
+        "label": {
+          "type": "string",
+          "description": "The field label (required, optional, repeated).",
+          "enum": ["LABEL_OPTIONAL", "LABEL_REQUIRED", "LABEL_REPEATED"]
+        },
+        "type": {
+          "type": "string",
+          "description": "The field type.",
+          "enum": [
+            "TYPE_DOUBLE", "TYPE_FLOAT", "TYPE_INT64", "TYPE_UINT64",
+            "TYPE_INT32", "TYPE_FIXED64", "TYPE_FIXED32", "TYPE_BOOL",
+            "TYPE_STRING", "TYPE_GROUP", "TYPE_MESSAGE", "TYPE_BYTES",
+            "TYPE_UINT32", "TYPE_ENUM", "TYPE_SFIXED32", "TYPE_SFIXED64",
+            "TYPE_SINT32", "TYPE_SINT64"
+          ]
+        },
+        "typeName": {
+          "type": "string",
+          "description": "For message and enum types, the fully-qualified type name."
+        },
+        "extendee": {
+          "type": "string",
+          "description": "For extensions, the fully-qualified name of the extended message."
+        },
+        "defaultValue": {
+          "type": "string",
+          "description": "The default value for this field as a string representation."
+        },
+        "oneofIndex": {
+          "type": "integer",
+          "description": "If set, index into the containing message's oneof_decl list."
+        },
+        "jsonName": {
+          "type": "string",
+          "description": "JSON name of this field, following lowerCamelCase convention."
+        },
+        "proto3Optional": {
+          "type": "boolean",
+          "description": "If true, this is a proto3 optional field."
+        }
+      }
+    },
+    "EnumDescriptorProto": {
+      "type": "object",
+      "description": "Describes an enum type.",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The enum type name."
+        },
+        "value": {
+          "type": "array",
+          "description": "Enum value definitions.",
+          "items": {
+            "$ref": "#/definitions/EnumValueDescriptorProto"
+          }
+        },
+        "reservedRange": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "start": { "type": "integer" },
+              "end": { "type": "integer" }
+            }
+          }
+        },
+        "reservedName": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "EnumValueDescriptorProto": {
+      "type": "object",
+      "description": "Describes an individual enum value.",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The enum value name."
+        },
+        "number": {
+          "type": "integer",
+          "description": "The numeric value assigned to this enum entry."
+        }
+      }
+    },
+    "ServiceDescriptorProto": {
+      "type": "object",
+      "description": "Describes a service, typically used with gRPC.",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The service name."
+        },
+        "method": {
+          "type": "array",
+          "description": "RPC methods defined in this service.",
+          "items": {
+            "$ref": "#/definitions/MethodDescriptorProto"
+          }
+        }
+      }
+    },
+    "MethodDescriptorProto": {
+      "type": "object",
+      "description": "Describes an RPC method within a service.",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The method name."
+        },
+        "inputType": {
+          "type": "string",
+          "description": "Fully-qualified input message type name."
+        },
+        "outputType": {
+          "type": "string",
+          "description": "Fully-qualified output message type name."
+        },
+        "clientStreaming": {
+          "type": "boolean",
+          "description": "If true, the client sends a stream of messages.",
+          "default": false
+        },
+        "serverStreaming": {
+          "type": "boolean",
+          "description": "If true, the server sends a stream of messages.",
+          "default": false
+        }
+      }
+    },
+    "OneofDescriptorProto": {
+      "type": "object",
+      "description": "Describes a oneof definition.",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The oneof name."
+        }
+      }
+    },
+    "FileOptions": {
+      "type": "object",
+      "description": "Options defined at the file level in a .proto file.",
+      "properties": {
+        "javaPackage": {
+          "type": "string",
+          "description": "Java package name for generated Java code."
+        },
+        "javaOuterClassname": {
+          "type": "string",
+          "description": "Java outer class name for generated code."
+        },
+        "javaMultipleFiles": {
+          "type": "boolean",
+          "description": "If true, generate a separate .java file for each top-level message."
+        },
+        "goPackage": {
+          "type": "string",
+          "description": "Go package import path for generated Go code."
+        },
+        "ccGenericServices": {
+          "type": "boolean",
+          "description": "If true, generate generic service code for C++."
+        },
+        "javaGenericServices": {
+          "type": "boolean",
+          "description": "If true, generate generic service code for Java."
+        },
+        "pyGenericServices": {
+          "type": "boolean",
+          "description": "If true, generate generic service code for Python."
+        },
+        "optimizeFor": {
+          "type": "string",
+          "description": "Optimization mode for generated code.",
+          "enum": ["SPEED", "CODE_SIZE", "LITE_RUNTIME"]
+        },
+        "ccEnableArenas": {
+          "type": "boolean",
+          "description": "If true, enable arena allocation for C++."
+        },
+        "objcClassPrefix": {
+          "type": "string",
+          "description": "Prefix for generated Objective-C classes."
+        },
+        "csharpNamespace": {
+          "type": "string",
+          "description": "Namespace for generated C# code."
+        },
+        "swiftPrefix": {
+          "type": "string",
+          "description": "Prefix for generated Swift classes."
+        },
+        "phpClassPrefix": {
+          "type": "string",
+          "description": "Prefix for generated PHP classes."
+        },
+        "phpNamespace": {
+          "type": "string",
+          "description": "Namespace for generated PHP code."
+        },
+        "phpMetadataNamespace": {
+          "type": "string",
+          "description": "Namespace for generated PHP metadata classes."
+        },
+        "rubyPackage": {
+          "type": "string",
+          "description": "Package name for generated Ruby code."
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

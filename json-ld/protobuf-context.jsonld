@@ -1,0 +1,126 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "protobuf": "https://protobuf.dev/reference/protobuf/google.protobuf#",
+    "schema": "https://schema.org/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "FileDescriptor": {
+      "@id": "protobuf:FileDescriptorProto",
+      "@type": "@id"
+    },
+    "MessageDescriptor": {
+      "@id": "protobuf:DescriptorProto",
+      "@type": "@id"
+    },
+    "FieldDescriptor": {
+      "@id": "protobuf:FieldDescriptorProto",
+      "@type": "@id"
+    },
+    "EnumDescriptor": {
+      "@id": "protobuf:EnumDescriptorProto",
+      "@type": "@id"
+    },
+    "EnumValue": {
+      "@id": "protobuf:EnumValueDescriptorProto",
+      "@type": "@id"
+    },
+    "ServiceDescriptor": {
+      "@id": "protobuf:ServiceDescriptorProto",
+      "@type": "@id"
+    },
+    "MethodDescriptor": {
+      "@id": "protobuf:MethodDescriptorProto",
+      "@type": "@id"
+    },
+    "OneofDescriptor": {
+      "@id": "protobuf:OneofDescriptorProto",
+      "@type": "@id"
+    },
+
+    "name": {
+      "@id": "schema:name",
+      "@type": "xsd:string"
+    },
+    "description": {
+      "@id": "schema:description",
+      "@type": "xsd:string"
+    },
+    "package": {
+      "@id": "schema:softwarePackage",
+      "@type": "xsd:string"
+    },
+    "syntax": {
+      "@id": "schema:version",
+      "@type": "xsd:string"
+    },
+    "fields": {
+      "@id": "rdfs:member",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "messageType": {
+      "@id": "rdfs:Class",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "enumType": {
+      "@id": "rdfs:Datatype",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "service": {
+      "@id": "schema:Service",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "method": {
+      "@id": "schema:potentialAction",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "inputType": {
+      "@id": "schema:object",
+      "@type": "xsd:string"
+    },
+    "outputType": {
+      "@id": "schema:result",
+      "@type": "xsd:string"
+    },
+    "fieldNumber": {
+      "@id": "schema:position",
+      "@type": "xsd:integer"
+    },
+    "fieldType": {
+      "@id": "rdf:type",
+      "@type": "xsd:string"
+    },
+    "label": {
+      "@id": "schema:valueRequired",
+      "@type": "xsd:string"
+    },
+    "defaultValue": {
+      "@id": "schema:defaultValue",
+      "@type": "xsd:string"
+    },
+    "repeated": {
+      "@id": "schema:multipleValues",
+      "@type": "xsd:boolean"
+    },
+    "clientStreaming": {
+      "@id": "schema:dataFlow",
+      "@type": "xsd:boolean"
+    },
+    "serverStreaming": {
+      "@id": "schema:dataFlow",
+      "@type": "xsd:boolean"
+    },
+    "dependency": {
+      "@id": "schema:dependency",
+      "@type": "xsd:string",
+      "@container": "@set"
+    }
+  }
+}
