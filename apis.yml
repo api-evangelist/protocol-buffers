@@ -1,26 +1,23 @@
+aid: protocol-buffers
 name: Protocol Buffers
 description: Protocol Buffers (Protobuf) is Google's language-neutral, platform-neutral,
   extensible mechanism for serializing structured data. It defines a schema language
   for specifying message structures in .proto files, which are compiled into efficient
   binary wire format code for multiple programming languages. Widely used with gRPC
   for high-performance remote procedure calls and data interchange.
-url: https://protobuf.dev/
+type: Index
+url: https://raw.githubusercontent.com/api-evangelist/protocol-buffers/refs/heads/main/apis.yml
 tags:
 - Protocol Buffers
 - Protobuf
 - Serialization
 - gRPC
 - Data Format
-created: '2025'
-modified: '2025'
+created: '2025-01-01'
+modified: '2026-03-16'
+specificationVersion: '0.19'
 apis: []
-common:
-- type: x-json-schema
-  url: json-schema/protobuf-json-mapping.json
-  title: Protobuf JSON Mapping Schema
-- type: x-json-schema
-  url: json-schema/protobuf-descriptor.json
-  title: Protobuf File Descriptor Schema
-- type: x-json-ld-context
-  url: json-ld/protobuf-context.jsonld
-  title: Protocol Buffers JSON-LD Context
+common: []
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
