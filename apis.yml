@@ -39,7 +39,7 @@ apis:
     properties:
       - type: Documentation
         url: https://protobuf.dev/overview/
-      - type: Getting Started
+      - type: GettingStarted
         url: https://protobuf.dev/getting-started/
       - type: Reference
         url: https://protobuf.dev/reference/
@@ -54,9 +54,9 @@ common:
     url: https://protobuf.dev/
   - type: Documentation
     url: https://protobuf.dev/overview/
-  - type: GitHub Organization
+  - type: GitHubOrganization
     url: https://github.com/protocolbuffers
-  - type: GitHub Repository
+  - type: GitHubRepository
     url: https://github.com/protocolbuffers/protobuf
 maintainers:
   - FN: Kin Lane
