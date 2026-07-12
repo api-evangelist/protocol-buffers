@@ -50,6 +50,8 @@ apis:
       - type: JSONSchema
         url: https://raw.githubusercontent.com/api-evangelist/protocol-buffers/refs/heads/main/json-schema/protocol-buffers-json-mapping.json
 common:
+  - type: DomainSecurity
+    url: security/protocol-buffers-domain-security.yml
   - type: Website
     url: https://protobuf.dev/
   - type: Documentation
@@ -58,6 +60,8 @@ common:
     url: https://github.com/protocolbuffers
   - type: GitHubRepository
     url: https://github.com/protocolbuffers/protobuf
+  - url: https://protobuf.dev/news/index.xml
+    type: Blog
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
