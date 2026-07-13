@@ -1,0 +1,14 @@
+{
+  "repo": "protocol-buffers",
+  "feeds": [
+    {
+      "source": "https://protobuf.dev/news/index.xml",
+      "feed_url": "https://protobuf.dev/news/index.xml",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    }
+  ],
+  "fetched": "2026-07-11T11:50:51Z",
+  "post_count": 59
+}
