@@ -8,6 +8,17 @@ description: >-
   languages. Widely used with gRPC for high-performance remote procedure calls
   and data interchange.
 type: Index
+deliveryModel:
+  model: unknown
+  open_source: unknown
+  commercial: false
+  callable_host: false
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - repository-unlicensed
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: unknown
@@ -62,6 +73,16 @@ apis:
       - type: JSONSchema
         url: https://raw.githubusercontent.com/api-evangelist/protocol-buffers/refs/heads/main/json-schema/protocol-buffers-json-mapping.json
 common:
+  - type: IssueTracker
+    url: https://github.com/protocolbuffers/protobuf/issues
+  - type: Releases
+    url: https://github.com/protocolbuffers/protobuf/releases
+  - type: SecurityPolicy
+    url: https://github.com/protocolbuffers/protobuf/blob/main/SECURITY.md
+  - type: CodeOfConduct
+    url: https://github.com/protocolbuffers/protobuf/blob/main/CODE_OF_CONDUCT.md
+  - type: ContributionGuide
+    url: https://github.com/protocolbuffers/protobuf/blob/main/CONTRIBUTING.md
   - type: DomainSecurity
     url: security/protocol-buffers-domain-security.yml
   - type: Website
